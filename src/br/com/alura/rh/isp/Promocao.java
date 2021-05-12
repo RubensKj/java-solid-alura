@@ -3,7 +3,7 @@ package br.com.alura.rh.isp;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Promocao implements Reajuste {
+public class Promocao implements ReajusteTributavel {
 
     private BigDecimal valor;
     private LocalDate data;
@@ -21,5 +21,10 @@ public class Promocao implements Reajuste {
     @Override
     public LocalDate data() {
         return this.data;
+    }
+
+    @Override
+    public BigDecimal valorImpostoDeRenda() {
+        return this.valor.multiply(new BigDecimal("0.1"));
     }
 }
